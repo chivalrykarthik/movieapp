@@ -1,0 +1,23 @@
+<div class="row">
+
+    <div class="col-md-{{updCol || actualCol}}" *ngFor="let up of movies">
+        <div class="thumbnail movie-card">
+            <!--<a href="Javascript:void(0)" target="_blank">-->
+
+            <img class="movie-poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{up.poster_path}}" alt="Lights" style="width:100%">
+            <div class="caption">
+                <h3 class="movie-title">{{up.title}}</h3>
+                <p class="movie-description">{{up.overview}}</p>
+                <p class="movie-rating">Rating:{{up.vote_average}}
+                    <span style="float:right">
+                        <button  class = "btn" [ngClass]="{'btn-success':(!recMovies || !recMovies.length || recMovies.indexOf(up.id.toString())==-1),'btn-danger':(recMovies && recMovies.length && recMovies.indexOf(up.id.toString())>=0)}" (click)="recommend(up,$event)">{{(recMovies && recMovies.length && recMovies.indexOf(up.id.toString())>=0)?"Unrecommend":"Recommend"}}</button>
+                    </span>
+                </p>
+
+            </div>
+            <!--</a>-->
+
+        </div>
+    </div>
+
+</div>

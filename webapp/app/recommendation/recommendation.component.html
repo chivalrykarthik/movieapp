@@ -1,0 +1,33 @@
+﻿<!--<div class="row">
+    <div class="col-md-12">
+        <input #textbox type="text" id="search-text-field" class="input-sm" required>
+        <button id="search-button" (click)="searchMovies(textbox.value)" class="btn btn-success">Search</button>
+    </div>
+</div>-->
+
+<div class="form-group form-group-sm">
+
+    <div class="col-sm-7">
+        <input #textbox type="text" id="search-text-field" class="form-control" type="text" required>
+
+    </div>
+    <div class="col-sm-2">
+
+        <button id="search-button" (click)="searchMovies(textbox.value)" class="btn btn-success">Search</button>
+    </div>
+</div>
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-9">
+        <div id="search-results">
+            <h3>Seach Results</h3>
+            <list-movies [movies]="searchResults" [updCol]="4" [getRecommendation]="getRecommendation.bind(this)" [recMovies]="movieIDs"></list-movies>
+
+        </div>
+    </div>
+    <div class="col-md-3 thumbnail">
+        <h3>Recommendations</h3>
+        <list-movies [movies]="recommendations" [updCol]="12" [getRecommendation]="getRecommendation.bind(this)" [recMovies]="movieIDs"></list-movies>
+
+    </div>
+</div>

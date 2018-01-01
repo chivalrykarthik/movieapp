@@ -1,0 +1,36 @@
+<!--<h2>{{pageTitle}}</h2>-->
+<!--<p>The .thumbnail class can be used to display an image gallery.</p>
+  <p>The .caption class adds proper padding and a dark grey color to text inside thumbnails.</p>
+  <p>Click on the images to enlarge them.</p>-->
+<div>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active">
+          <a (click)="clickMe(1)" id="trending">Trending</a>
+        </li>
+        <li routerLinkActive="active" id="forthcoming">
+          <a (click)="clickMe(2)">Forthcoming</a>
+        </li>
+        <li routerLinkActive="active" id="recommendations">
+          <a (click)="clickMe(3)">Recommendation</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+  <div [hidden]="hideElement!=1">
+    <list-movies [movies]="popularMovies" [getRecommendation]="getRecommendations.bind(this)" [recMovies]="recommendations.movieIDs"></list-movies>
+
+  </div>
+  <div [hidden]="hideElement!=2">
+    <list-movies [movies]="upcomingMovies" [getRecommendation]="getRecommendations.bind(this)" [recMovies]="recommendations.movieIDs"></list-movies>
+  </div>
+  <div [hidden]="hideElement!=3">
+    <list-movies [movies]="recommendations.recommendations" [recMovies]="recommendations.movieIDs" [getRecommendation]="getRecommendations.bind(this)"></list-movies>
+  </div>
+  
+</div>
